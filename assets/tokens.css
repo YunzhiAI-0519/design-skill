@@ -1,0 +1,168 @@
+/* ==========================================================================
+   MiniRelax — Landing Design Tokens (v2)
+   品牌落地页设计变量。直接 @import 或在 :root 内引用。
+   红线：颜色只走变量；圆角只用本文件家族；阴影只用蓝主色系；禁 transition:all。
+   ========================================================================== */
+
+:root {
+  /* ---- 主色 ---- */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-active: #1e40af;
+  --primary-soft: #eff6ff;
+  --primary-border: #bfdbfe;
+
+  /* ---- 墨色 / 文字层级 ---- */
+  --ink: #0f172a;          /* 深色底：深色按钮 / 公告 */
+  --text-1: #0f172a;       /* 标题 */
+  --text-2: #334155;       /* 正文 */
+  --text-3: #64748b;       /* 次要（正文下限，不得更浅） */
+  --text-4: #94a3b8;       /* 弱化 / 占位 / 英文小标签 */
+
+  /* ---- 边框 / 背景 ---- */
+  --border: #e2e8f0;
+  --border-light: #eef2f7;
+  --bg: #ffffff;
+  --bg-alt: #f8fafc;       /* 区块交替浅灰 */
+  --bg-code: #0f172a;      /* 代码块 / 控制台演示窗底 */
+
+  /* ---- 语义色 ---- */
+  --success: #059669;
+  --success-soft: #ecfdf5;
+  --success-border: #a7f3d0;
+  --warn: #d97706;
+  --warn-soft: #fffbeb;
+  --warn-border: #fde68a;
+  --danger: #dc2626;
+
+  /* ---- 圆角家族 ---- */
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+
+  /* ---- 渐变（点睛，不滥用）---- */
+  --grad-cta: linear-gradient(90deg, #4f46e5, #2563eb, #0891b2);     /* 品牌副标 / CTA */
+  --grad-brand: linear-gradient(135deg, #2563eb, #7c3aed);           /* 品牌辅：蓝→紫 */
+  /* 封面 banner 交替四色 */
+  --grad-banner-a: linear-gradient(135deg, #2563eb, #7c3aed);        /* 蓝紫 */
+  --grad-banner-b: linear-gradient(135deg, #0891b2, #2563eb);        /* 青蓝 */
+  --grad-banner-c: linear-gradient(135deg, #4f46e5, #c026d3);        /* 紫粉 */
+  --grad-banner-d: linear-gradient(135deg, #0284c7, #4f46e5);        /* 湛蓝 */
+  /* 错误页 */
+  --grad-404: linear-gradient(135deg, #2563eb, #7c3aed);             /* 蓝→紫 */
+  --grad-500: linear-gradient(135deg, #d97706, #dc2626, #db2777);    /* 橙→红→粉 */
+  --grad-503: linear-gradient(135deg, #2563eb, #7c3aed);             /* 维护：蓝紫 */
+
+  /* ---- 阴影：一律蓝主色系「大距离 + 低透明度」，禁黑色重阴影 ---- */
+  --shadow-card-hover: 0 12px 32px rgba(37, 99, 235, .10);
+  --shadow-panel: 0 8px 26px rgba(37, 99, 235, .08);
+  --shadow-float: 0 8px 30px rgba(15, 23, 42, .08), 0 2px 8px rgba(15, 23, 42, .04);
+  --shadow-nav: 0 6px 24px rgba(15, 23, 42, .06), 0 2px 8px rgba(15, 23, 42, .04);
+  --shadow-fab: 0 6px 18px rgba(15, 23, 42, .10), 0 2px 6px rgba(15, 23, 42, .06);
+
+  /* ---- 动效 ---- */
+  --ease-slide: cubic-bezier(.32, .72, 0, 1);     /* 面板滑入（品牌主缓动） */
+  --ease-spring: cubic-bezier(.34, 1.3, .64, 1);  /* 回弹 */
+  --dur-fast: .2s;
+  --dur-slide: .28s;
+
+  /* ---- 字体 ---- */
+  --font-sans: "PingFang SC", "Microsoft YaHei", system-ui, -apple-system,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* ---- 布局 ---- */
+  --container: 1280px;     /* max-w-7xl */
+  --gutter: 24px;
+  --section-y: 92px;       /* 区块纵向 padding 88–96px */
+}
+
+/* ==========================================================================
+   基础排版
+   ========================================================================== */
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-2);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 大标题：800–900 / -0.02em / 行高 1.1–1.15 */
+.h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; color: var(--text-1); }
+.h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; color: var(--text-1); }
+
+/* section 标题眉标：12px 蓝大写 */
+.eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--primary);
+}
+/* 轻量眼眉：13px text-3（A.4），可选 dots 装饰点 */
+.eyebrow--soft {
+  font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--text-3);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.eyebrow--soft::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--primary); }
+
+/* 英文次级标注：10–11px / 600 / .1–.12em / uppercase / text-4 */
+.label-en {
+  font-size: 11px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--text-4);
+}
+
+/* 数字：等宽对齐 */
+.tnum, .stat, table { font-variant-numeric: tabular-nums; }
+
+/* 容器与区块 */
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding: var(--section-y) 0; }
+.section-alt { background: var(--bg-alt); }
+
+/* ==========================================================================
+   溢出收敛（红线 5）
+   ========================================================================== */
+.min-w-0 { min-width: 0; }
+.wrap-anywhere { overflow-wrap: break-word; }
+.ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ==========================================================================
+   点阵背景（A5）
+   ========================================================================== */
+.dot-grid {
+  background-image: radial-gradient(#e4e4e7 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0;
+  opacity: .55;
+}
+
+/* ==========================================================================
+   入场动画（observer 梯度 .08/.16/.24s）
+   ========================================================================== */
+/* 安全兜底：无 JS 时默认可见；仅在 <html class="js"> 时才隐藏等待入场。
+   避免脚本加载失败导致整页空白（无 JS = 完整内容直接可读）。 */
+.reveal { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(16px); }
+.js .reveal.in {
+  opacity: 1; transform: none;
+  transition: opacity .5s ease-out, transform .5s ease-out;
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+/* ==========================================================================
+   性能：首屏外区块（红线 8）
+   ========================================================================== */
+.below-the-fold { content-visibility: auto; contain-intrinsic-size: 720px; }
+
+/* ==========================================================================
+   动效降级（必查）
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal, .js .reveal { opacity: 1; transform: none; }
+}

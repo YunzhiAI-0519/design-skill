@@ -1,0 +1,19 @@
+# 分发包 / 构建产物（通过 GitHub Releases 分发，不入库）
+dist/
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
