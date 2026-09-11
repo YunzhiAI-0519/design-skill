@@ -51,10 +51,10 @@ minirelax-landing-design/
 
 ```bash
 # WorkBuddy
-git clone https://github.com/<your-org>/minirelax-landing-design.git ~/.workbuddy/skills/minirelax-landing-design
+git clone https://github.com/YunzhiAI-0519/design-skill.git ~/.workbuddy/skills/minirelax-landing-design
 
 # Claude Code / 其他兼容 Agent Skills 的工具
-git clone https://github.com/<your-org>/minirelax-landing-design.git ~/.claude/skills/minirelax-landing-design
+git clone https://github.com/YunzhiAI-0519/design-skill.git ~/.claude/skills/minirelax-landing-design
 ```
 
 也可以下载 Releases 中的 `minirelax-landing-design.zip`，解压到对应的 `skills/` 目录。
