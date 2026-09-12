@@ -46,7 +46,7 @@ minirelax-landing-design/
 ```
 
 ## 预览
-云智 Token Hub(https://maas.piteyun.com)
+[云智 Token Hub](https://maas.piteyun.com)
 
 ## 安装
 
